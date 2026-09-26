@@ -24,8 +24,7 @@ end
 def add_another_row(chart, row_to_add)
   # take a chart and add row_to_add to the end of the chart,
   # then return the chart.
-  chart.push(row_to_add)
-  chart
+  chart << row_to_add
 end
 
 def delete_seat_from_row(chart, row_index, seat_index)
@@ -46,12 +45,7 @@ end
 
 def count_empty_seats(chart)
   # take a chart and return the number of empty (nil) seats in it
-  result = 0
-  chart.each do |row|
-    result += row.count { |seat| seat.nil? }
-  end
-  result
-  
+  chart.flatten.count(nil)
   # NOTE: `chart` should **not** be mutated
 end
 
